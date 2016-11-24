@@ -1,0 +1,5 @@
+(define (f g)
+  (g 2))
+
+(f f) would evaluate to (f 2) which again evaluates to (2 2)
+(2 2) does not define any procedure as 2 is not an operator and calling it would result into error.
