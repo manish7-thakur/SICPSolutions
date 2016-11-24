@@ -19,4 +19,4 @@ for e.g: for a variant of test like
 
 $ (test 0 (/ 1 0)) would lead to the error divide by zero.
 $ (test 0 1) would actually lead to "too many arguments".
-$ (test 0) would give 0 which shows "if" predicate is evaluated first, and depending on the result, the body.
+$ (test 0) would give 0 that shows "if" predicate is evaluated first, and depending on the result, the body.

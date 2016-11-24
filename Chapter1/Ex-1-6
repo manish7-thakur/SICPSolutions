@@ -1,0 +1,21 @@
+(define (sqrt x) (sqrt-iter 1.0 x))
+
+$: (sqrt 1) never returns
+
+As per the rules of evaluating combinations (applicative order evaluation) : Evaluate the subexpressions first.
+
+Evaluating 'sqrt' involves evaluating (sqrt-iter 1.0 x)
+
+Evaluate 'sqrt-iter', 1.0 & x.
+
+Evaluating 'sqrt-iter' would be evaluate (new-if (good-enough? guess x) guess (sqrt-iter (improve guess x) x)) which starts by evaluation operator 'new-if'
+
+which is (cond (good-enough? guess x) guess (sqrt-iter (improve guess x) x))
+
+Evaluating the cond involves evaluating (good-enough? guess x) , guess and (sqrt-iter (improve guess x) x) which is a recursive call that never finishes.
+
+Where as "if" is a special form and as mentioned in 1.1.6 it is not evaluated early but lazily. The excerpts from the book says
+
+To evaluate an if expression, the interpreter starts by evaluating the ⟨predicate⟩ part of the expression.
+If the ⟨predicate⟩ evaluates to a true value, the interpreter then evaluates the ⟨consequent⟩ and returns its value.
+Otherwise it evaluates the ⟨alternative⟩ and returns its value.
