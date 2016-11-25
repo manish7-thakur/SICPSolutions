@@ -1,0 +1,31 @@
+(define (double f)
+         (lambda(x) (f (f x))))
+
+$((double inc) 1)
+$3
+
+
+
+$(((double (double double)) inc) 5)
+$(((double double) (double double) inc) 5)
+$((double double double double inc) 5)
+$((double double double inc inc) 5)
+$((double double inc inc inc inc) 5)
+$((inc inc inc inc inc inc inc inc inc inc inc inc inc inc inc inc) 5)
+$(inc inc inc inc inc inc inc inc inc inc inc inc inc inc inc inc 5)
+$(inc inc inc inc inc inc inc inc inc inc inc inc inc inc inc 6)
+$(inc inc inc inc inc inc inc inc inc inc inc inc inc inc 7)
+$(inc inc inc inc inc inc inc inc inc inc inc inc inc 8)
+$(inc inc inc inc inc inc inc inc inc inc inc inc 9)
+$(inc inc inc inc inc inc inc inc inc inc inc 10)
+$(inc inc inc inc inc inc inc inc inc inc 11)
+$(inc inc inc inc inc inc inc inc inc 12)
+$(inc inc inc inc inc inc inc inc 13)
+$(inc inc inc inc inc inc inc 14)
+$(inc inc inc inc inc inc 15)
+$(inc inc inc inc inc 16)
+$(inc inc inc inc 17)
+$(inc inc inc 18)
+$(inc inc 19)
+$(inc 20)
+$21
