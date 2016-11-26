@@ -1,0 +1,39 @@
+Ni = 1
+
+Di
+
+i       Di
+1   =>   1
+2   =>   2
+3   =>   1
+4   =>   1
+5   =>   4
+6   =>   1
+7   =>   1
+8   =>   6
+9   =>   1
+10  =>   1
+11  =>   8
+
+Numbers are a cycle of 3.
+
+if i % 3 = 2, cycle repeats
+
+2 => 2
+5 => 4
+8 => 6
+11 => 8
+
+8 + x
+-----   = 6
+  y
+
+11 + x
+------  = 8
+  y
+
+  x = 1, y = 1.5
+
+(define (eulers k)
+  (+ 2 (cont-frac (lambda (i) 1)
+                (lambda (i) (if (= (remainder i 3) 2) (/ (+ i 1) 1.5) 1)) k)))
