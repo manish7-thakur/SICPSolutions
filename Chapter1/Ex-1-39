@@ -1,0 +1,5 @@
+(define (tan-cf x k)
+    (define (tan-iter res k)
+            (if (= k 0) res (tan-iter (/ (if(= k 1) x (* x x)) (- (- (- (* 2 k) 1))  res)) (- k 1) )))
+                (tan-iter 0 k)
+            )
