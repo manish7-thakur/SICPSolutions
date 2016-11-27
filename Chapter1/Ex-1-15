@@ -23,6 +23,7 @@ log(a) - nlog(3) = log(0.1)
 nlog(3) = log(a) - log(0.1)
 
 divide by log(3) on both sides
+
        log(a)     log(0.1)
 n =    ------  -  -------
        log(3)      log(3)
