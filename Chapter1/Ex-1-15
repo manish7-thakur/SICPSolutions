@@ -1,0 +1,34 @@
+(sine 12.15)
+(p(sine 4.05))
+(p(p(sine 1.3499))
+(p(p(p(sine .4499)))
+(p(p(p(p(sine .14499))))
+(p(p(p(p(p(sine .04833)))))
+
+five p's ... got applied 5 times
+
+Time complexity
+===============
+
+How many times you have to divide a by 3 in order to get 0.1
+let it be n times, then
+
+a
+---  = 0.1
+3^n
+
+Taking log on both sides
+
+log(a) - nlog(3) = log(0.1)
+nlog(3) = log(a) - log(0.1)
+
+divide by log(3) on both sides
+       log(a)     log(0.1)
+n =    ------  -  -------
+       log(3)      log(3)
+
+n = log3(a) +  2.095
+
+neglecting constants for larger a values
+
+n = log3(a)
