@@ -1,2 +1,4 @@
+feed the output of the procedure (g x) as the input to f.
+
 (define (compose f g)
     (lambda(x) (f (g x))))
