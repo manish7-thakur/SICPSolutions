@@ -6,11 +6,11 @@ To evaluate a combination, do the following:
 1. Evaluate the subexpressions of the combination.
 2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
 
-The steps would be evaluate test, 0 and (p) as per the rules.
+The steps involved in evaluating the above expression would be evaluate 'test', 0 and (p) as per the rules.
 
-'test' is (if (= x 0) 0 y) , 0 is 0 value and (p) is again evaluating (p) leading to infinite recursive call.
+'test' is (if (= x 0) 0 y) , 0 is 0 value and combination (p) is again evaluating the combination (p) which is a call to itself leading to infinite recursive call.
 
-So all the subexpressions are evaluated even before calling the procedure.
+So all the subexpressions are evaluated first, even before calling the procedure.
 
 for e.g: for a variant of test like
 
