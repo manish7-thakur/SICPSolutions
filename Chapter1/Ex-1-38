@@ -39,3 +39,5 @@ find some x, y such that
 (define (eulers k)
   (+ 2 (cont-frac (lambda (i) 1)
                 (lambda (i) (if (= (remainder i 3) 2) (/ (+ i 1) 1.5) 1)) k)))
+
+using 'cont-frac' from Ex-1.37
