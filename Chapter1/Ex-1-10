@@ -78,3 +78,5 @@ n = 1 => (A 2 1)           ========> 2
 n = 2 => (A 2 2)           ========> 4            : From step D
 n = 3 => (A 2 3)           ========> 16           : From step E
 n = 4 => (A 2 4)           ========> 65536        : From previous problem
+
+doesn't figured out yet
