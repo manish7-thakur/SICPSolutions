@@ -1,10 +1,7 @@
 (define (mul a b)
-    (define (*-iter a b res)
-        (cond ((= b 0) res)
-               ((even? b) (*-iter (double  a) (halve b) res))
-                (else (*-iter  a (- b 1) (+ a res)))
-                ))
-                (*-iter a b 0))
+(cond ((= b 0) 0)
+     ((even? b) (double (mul a (halve b))))
+     (else (+ a (mul a (- b 1))))))
 
 (define (double a)
            (* a 2))
