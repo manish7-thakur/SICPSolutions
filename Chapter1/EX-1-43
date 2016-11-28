@@ -1,10 +1,6 @@
-(define (repeated f n)
-  (if (< n 1) (lambda (x) x) (compose f (repeated f (- n 1))) ))
+(define (repeat f n)
+        (if (= n 1) f (compose f (repeat f  (- n 1)))
+                    ))
 
-
-  Experiment with
-  ==============
-
-  (define (repeated f n)  (lambda(x) (if (n == 1) (f x) (repeated (compose f f) (- n 1)))))
 
 
