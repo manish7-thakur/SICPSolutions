@@ -14,4 +14,4 @@ b2 = b(p2 + q2) + a(2pq + p2)
 
 
 1. (+ (square p) (square q))
-2. (+ (* 2 p q) (square q))
+2. (+ (* 2 p q) (square p))
