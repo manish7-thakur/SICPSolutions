@@ -1,0 +1,16 @@
+Let n be the exponent and T(n) be time of calculating 'base ^ n'
+
+T(n) = { 1 if n = 0
+     = { T(n/2) + T(n/2) + log(n)           // log(n) for combining the result, now its a tree recursion so the result to be combined are equivalent to the height og the tree
+
+T(n) = 2T(n/2) + log(n)
+
+a=2 , b = 2 , f(n) = log(n)
+
+applying master theorem
+
+n ^ log(a) to base b = n ^ log(2) to base 2  = n which is greater than f(n)
+
+case 1 of master theorem
+
+   T(n) = Q(n ^ log (a) to base b) = Q(n)
