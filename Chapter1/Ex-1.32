@@ -8,3 +8,10 @@
 
 (define (sum term a next b)
           (accumulate + 0 term a next b))
+
+
+(define (accumulate combiner null-value term a next b)
+        (define (acc res a)
+        (if(> a b) res
+            ((acc (combiner res (term a)) (next a) ))))
+                    (acc null-value a))
