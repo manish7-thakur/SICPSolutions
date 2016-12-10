@@ -4,6 +4,7 @@
                 (combiner null-value (filtered-accumulate combiner null-value term (next a) next b filter)) )
             ))
 
+
 (filtered-accumulate + 0 square a inc b prime?)
 
 (filtered-accumulate * 1 identity i inc n gcd_unity?)
