@@ -1,0 +1,12 @@
+x = 1 + 1/x
+x^2 = x + 1
+
+Solving the roots of the equation
+
+x^2 -x -1 = 0
+
+x = -b + underroot(b^2 - 4ac)   = 1 + underroot(1 - 4 * 1 * -1) = 1 + underroot(5)
+    --------------------------    -----------------------------   ----------------
+             2a                             2 * 1                       2
+
+(fixed-point (lambda(x) (+ 1 (/ 1 x))) 1.0)
