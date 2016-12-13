@@ -1,0 +1,4 @@
+(define (iterative-improve good-enough? improve-guess)
+ (lambda(guess)
+    (let ((improved (improve-guess)))
+     (if(good-enough? guess improved) improved ((iterative-improve good-enough? improve-guess) improved)))))
