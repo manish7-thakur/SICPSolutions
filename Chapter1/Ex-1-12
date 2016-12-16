@@ -1,0 +1,11 @@
+(define (pas r c)
+    (cond ((or (< c 0) (< r 0)) 0)
+         ((and (= c 0) (= r 0)) 1)
+         (else (+ (pas (- r 1) (- c 1)) (pas (- r 1) c)) ))
+         )
+
+(define (gen-pas-tri n)
+(do ((i 0 (+ i 1))) ((= i (+ n 1)))
+  (do ((j 0 (+ j 1))) ((= j (+ i 1)))
+     (display (pas i j))
+    ) (newline)))
