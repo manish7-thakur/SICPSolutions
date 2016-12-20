@@ -1,11 +1,70 @@
+Slower
+====================================
+// important cond missing, makes it slow
 (define (pas r c)
     (cond ((or (< c 0) (< r 0)) 0)
          ((and (= c 0) (= r 0)) 1)
          (else (+ (pas (- r 1) (- c 1)) (pas (- r 1) c)) ))
          )
 
+Faster
+====================================
+// important cond c > r saves numerous recursive calls evaluating to 0
+(define (pas r c)
+    (cond ((or (< c 0) (> c r)) 0)
+         ((and (= c 0) (= r 0)) 1)
+         (else (+ (pas (- r 1) (- c 1)) (pas (- r 1) c)) ))
+         )
+
+Even Faster (uses dynamic programming)
+======================================
+(define (pas-dy r c)
+    (cond ((not (get r c)) (put r c (cond ((or (< c 0) (> c r)) 0)
+                                    ((and (= c 0) (= r 0)) 1)
+                                    (else (+ (pas-dy (- r 1) (- c 1)) (pas-dy (- r 1) c)) ))) (get r c))
+          (else (get r c))
+         ))
+
+Generates pascal triangle row
+======================================
 (define (gen-pas-tri n)
 (do ((i 0 (+ i 1))) ((= i (+ n 1)))
   (do ((j 0 (+ j 1))) ((= j (+ i 1)))
-     (display (pas i j))
+     (display (pas-dy i j))
     ) (newline)))
+
+Table for memoization
+=======================================
+(define (make-table)
+  (let ((local-table (list '*table*)))
+    (define (lookup key-1 key-2)
+      (let ((subtable (assoc key-1 (cdr local-table))))
+        (if subtable
+            (let ((record (assoc key-2 (cdr subtable))))
+              (if record
+                  (cdr record)
+                  false))
+            false)))
+    (define (insert! key-1 key-2 value)
+      (let ((subtable (assoc key-1 (cdr local-table))))
+        (if subtable
+            (let ((record (assoc key-2 (cdr subtable))))
+              (if record
+                  (set-cdr! record value)
+                  (set-cdr! subtable
+                            (cons (cons key-2 value)
+                                  (cdr subtable)))))
+            (set-cdr! local-table
+                      (cons (list key-1
+                                  (cons key-2 value))
+                            (cdr local-table)))))
+      'ok)
+    (define (dispatch m)
+      (cond ((eq? m 'lookup-proc) lookup)
+            ((eq? m 'insert-proc!) insert!)
+            (else (error "Unknown operation - TABLE" m))))
+    dispatch))
+
+(define operation-table (make-table))
+(define get (operation-table 'lookup-proc))
+(define put (operation-table 'insert-proc!))
